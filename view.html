@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>StegApp 🔐</title>
+<title>Unlock Message</title>
 <style>
 body{
   margin:0;
@@ -16,46 +16,33 @@ body{
   background:white;
   padding:30px;
   border-radius:20px;
-  box-shadow:0 20px 40px rgba(0,0,0,0.3);
   text-align:center;
-  width:300px;
-}
-input{
-  width:90%;
-  padding:10px;
-  margin:10px;
-  border-radius:10px;
-  border:1px solid #ccc;
 }
 button{
   background:#d53f8c;
   color:white;
+  padding:10px;
   border:none;
-  padding:10px 20px;
   border-radius:10px;
-  cursor:pointer;
 }
-button:hover{background:#b83280;}
 
 @keyframes pop {
   0% { transform: scale(0); }
   100% { transform: scale(1); }
 }
 
-#output {
+#output{
   animation: pop 0.5s ease;
-  font-size: 20px;
 }
 </style>
 </head>
 <body>
 <div class="card">
 <h2>🔑 Enter Key</h2>
-<input type="password" id="key" placeholder="Secret key">
+<input type="password" id="key"><br><br>
 <button onclick="decode()">Unlock</button>
 <p id="output"></p>
 </div>
-
 <script src="script.js"></script>
 </body>
 </html>
