@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>StegApp 🔐</title>
+<title>Generate Link</title>
 <style>
 body{
   margin:0;
@@ -16,29 +16,23 @@ body{
   background:white;
   padding:30px;
   border-radius:20px;
-  box-shadow:0 20px 40px rgba(0,0,0,0.3);
   text-align:center;
-  width:300px;
 }
 button{
   background:#38a169;
   color:white;
+  padding:10px;
   border:none;
-  padding:10px 20px;
   border-radius:10px;
-  cursor:pointer;
 }
-button:hover{background:#2f855a;}
 </style>
 </head>
 <body>
 <div class="card">
-<h2>🎥 Generate Link</h2>
-<input type="file" id="vid"><br><br>
-<button onclick="generateLink()">Generate 🔗</button>
+<h2>🔗 Generate Link</h2>
+<button onclick="generateLink()">Generate</button>
 <p id="link"></p>
 </div>
-
 <script src="script.js"></script>
 </body>
 </html>
