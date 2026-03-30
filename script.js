@@ -28,7 +28,9 @@ function generateLink(){
 
  let encodedMsg = encodeURIComponent(msg);
 
- let link = `${window.location.origin}/view.html?msg=${encodedMsg}&key=${key}`;
+let baseURL = "https://rishitha-777.github.io/steg-app";
+
+let link = `${baseURL}/view.html?msg=${encodedMsg}&key=${key}`;
 
  document.getElementById('link').innerHTML =
  `🔗 ${link}<br>🔑 Key: <b>${key}</b><br><br>
