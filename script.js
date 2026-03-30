@@ -1,18 +1,6 @@
-// Fix for button click (important)
-document.addEventListener("DOMContentLoaded", () => {
-  let btn = document.getElementById("nextBtn");
-  if(btn){
-    btn.addEventListener("click", encode);
-  }
-});
-
 function encode(){
  let msg = document.getElementById('msg').value;
-
- if(msg === ""){
-   alert("Enter message");
-   return;
- }
+ if(msg===""){ alert("Enter message"); return; }
 
  localStorage.setItem('secretMsg', msg);
  window.location = 'video.html';
@@ -26,11 +14,14 @@ function generateLink(){
  let key = generateKey();
  let msg = localStorage.getItem('secretMsg');
 
- let encodedMsg = encodeURIComponent(msg);
+ let id = Math.random().toString(36).substring(2,8);
 
-let baseURL = "https://rishitha-777.github.io/steg-app";
+ // store data locally
+ localStorage.setItem(id, JSON.stringify({msg, key}));
 
-let link = `${baseURL}/view.html?msg=${encodedMsg}&key=${key}`;
+ let baseURL = "https://rishitha-777.github.io/steg-app";
+
+ let link = `${baseURL}/view.html?id=${id}`;
 
  document.getElementById('link').innerHTML =
  `🔗 ${link}<br>🔑 Key: <b>${key}</b><br><br>
@@ -48,34 +39,36 @@ function shareLink(link,key){
    });
  } else {
    navigator.clipboard.writeText(text);
-   alert('Link copied! Share it on WhatsApp 📲');
+   alert("Copied! Share on WhatsApp 📲");
  }
 }
 
 function decode(){
  let params = new URLSearchParams(window.location.search);
+ let id = params.get('id');
 
- let realKey = params.get('key');
- let msg = decodeURIComponent(params.get('msg'));
+ let data = JSON.parse(localStorage.getItem(id));
+
+ if(!data){
+   alert("Invalid link ❌");
+   return;
+ }
 
  let input = document.getElementById('key').value;
 
- if(input === realKey){
+ if(input === data.key){
 
+   let msg = data.msg;
    let output = document.getElementById('output');
 
    if(msg.toLowerCase().includes("love")){
-     output.innerHTML = `
-     <h2 style="color:red;">❤️ ${msg} ❤️</h2>
-     <p>💖💖💖💖💖💖💖</p>`;
+     output.innerHTML = `❤️ ${msg} ❤️ 💖💖💖`;
    }
-   else if(msg.toLowerCase().includes("haha") || msg.toLowerCase().includes("funny")){
-     output.innerHTML = `
-     <h2>😂 ${msg} 😂</h2>
-     <p>🤣🤣🤣🤣🤣🤣</p>`;
+   else if(msg.toLowerCase().includes("funny") || msg.toLowerCase().includes("haha")){
+     output.innerHTML = `😂 ${msg} 😂 🤣🤣🤣`;
    }
    else{
-     output.innerHTML = `<h2>😎 ${msg}</h2>`;
+     output.innerHTML = `😎 ${msg}`;
    }
 
  } else {
