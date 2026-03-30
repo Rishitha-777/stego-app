@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>StegApp 🔐</title>
+<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3064/3064197.png">
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  font-family:sans-serif;
+}
+.card{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.3);
+  text-align:center;
+  width:300px;
+}
+textarea,input{
+  width:90%;
+  padding:10px;
+  margin:10px;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+button{
+  background:#764ba2;
+  color:white;
+  border:none;
+  padding:10px 20px;
+  border-radius:10px;
+  cursor:pointer;
+}
+button:hover{background:#5a3db5;}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>🔐 Encode Message</h2>
+<input type="file" id="img">
+<textarea id="msg" placeholder="Enter secret message"></textarea>
+<button id="nextBtn">Next ➡</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

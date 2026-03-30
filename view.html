@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>StegApp 🔐</title>
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  font-family:sans-serif;
+}
+.card{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.3);
+  text-align:center;
+  width:300px;
+}
+input{
+  width:90%;
+  padding:10px;
+  margin:10px;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+button{
+  background:#d53f8c;
+  color:white;
+  border:none;
+  padding:10px 20px;
+  border-radius:10px;
+  cursor:pointer;
+}
+button:hover{background:#b83280;}
+
+@keyframes pop {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+#output {
+  animation: pop 0.5s ease;
+  font-size: 20px;
+}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>🔑 Enter Key</h2>
+<input type="password" id="key" placeholder="Secret key">
+<button onclick="decode()">Unlock</button>
+<p id="output"></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
